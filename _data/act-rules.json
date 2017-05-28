@@ -1,0 +1,9 @@
+{
+  "text-equiv-all": [{
+    "rule_id": "ACT-R1",
+    "name": "Proper use of aria-describedby"
+  }, {
+    "rule_id": "ACT-R2",
+    "name": "CSS background decorative"
+  }]
+}

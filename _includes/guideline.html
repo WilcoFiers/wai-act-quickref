@@ -13,7 +13,9 @@
 		{% assign asize = atech | size %}
 		{% assign ftech = guideline.techniques[0].failures %}
 		{% assign fsize = ftech | size %}
-		{% assign completesize = ssize | plus: asize | plus: fsize %}
+		{% assign rules = guideline.rules %}
+		{% assign rsize = rules | size %}
+		{% assign completesize = ssize | plus: asize | plus: fsize | plus: rsize %}
 
 		{% if completesize >= 1 %}
 
@@ -47,6 +49,10 @@
 		            <div role="tabpanel" class="tbox tbox-failure tab-pane active" id="sc-{{ p }}{{ g }}-failures">
 		              {% include techlist.html techtitle="Failures" techniques=ftech ttype="failure" %}
 		            </div>
+		          {% endif %}
+
+		          {% if rsize >= 1 %}
+		          	<h1>Show rules!!</h1>
 		          {% endif %}
 		        </div>
 

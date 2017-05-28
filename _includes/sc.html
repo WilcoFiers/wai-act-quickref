@@ -6,6 +6,8 @@
 {% assign keywordsdeveloping = tags.dev %}
 {% assign keywordsinteraction = tags.int %}
 {% assign keywordsvisual = tags.vis %}
+{% assign rules = site.data.act-rules[sc_id] or [] %}
+{% assign rsize = rules | size %}
 <article  id="{{sc_id}}" class="sc-wrapper current filter-levels-{{sc.level | downcase}}" data-tags-con="{{keywordscontent}}" data-tags-dev="{{keywordsdeveloping}}" data-tags-int="{{keywordsinteraction}}" data-tags-vis="{{keywordsvisual}}">
   <header>
     <h4 id="qr-{{sc_id}}"><strong>{{ p }}.{{ g }}.{{ s }}</strong> <span>{{sc.handle}}</span></h4>
@@ -81,6 +83,11 @@
           {% if fsize >= 1 %}
             <div role="tabpanel" class="tbox tbox-failures tab-pane active" id="sc-{{ p }}{{ g }}{{ s }}-failures" data-historicalid="#{{sc_id}}-failures-head">
               {% include techlist.html techtitle="Failures" techniques=ftech ttype="failure" %}
+            </div>
+          {% endif %}
+          {% if rsize >= 1 %}
+            <div role="tabpanel" class="tbox tbox-failures tab-pane active" id="sc-{{ p }}{{ g }}{{ s }}-rules" data-historicalid="#{{sc_id}}-rules-head">
+              {% include rules.html rules=rules %}
             </div>
           {% endif %}
         </div>

@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h5>Conformance Rules</h5>
+  </div>
+  <div class="panel-body">
+    <ul>
+      {% for rule in rules %}
+        <li><a href="https://auto-wcag.github.io/auto-wcag/rules/{{rule.rule_id}}">
+          {{rule.rule_id}}: {{rule.name}}
+        </a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
